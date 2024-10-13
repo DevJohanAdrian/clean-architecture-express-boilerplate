@@ -1,40 +1,11 @@
-import { OpenAPIRegistry } from "@asteasolutions/zod-to-openapi";
-// import express, { type Router } from "express";
-import { z } from "zod";
 
+import { OpenAPIRegistry } from "@asteasolutions/zod-to-openapi";
+import { Router } from 'express';
+import { z } from "zod";
 import { createApiResponse } from "@/api-docs/openAPIResponseBuilders";
 import { GetUserSchema, UserSchema } from "@/api/user/userModel";
 import { validateRequest } from "@/common/utils/httpHandlers";
-import { userController } from "./userController";
-
-// export const userRegistry = new OpenAPIRegistry();
-// export const userRoutes: Router = express.Router();
-
-userRegistry.register("User", UserSchema);
-
-userRegistry.registerPath({
-  method: "get",
-  path: "/users",
-  tags: ["User"],
-  responses: createApiResponse(z.array(UserSchema), "Success"),
-});
-
-userRoutes.get("/", userController.getUsers);
-
-userRegistry.registerPath({
-  method: "get",
-  path: "/users/{id}",
-  tags: ["User"],
-  request: { params: GetUserSchema.shape.params },
-  responses: createApiResponse(UserSchema, "Success"),
-});
-
-userRoutes.get("/:id", validateRequest(GetUserSchema), userController.getUser);
-
-
-
-import { Router } from 'express';
-import { TodosController } from './controller';
+import { UserContoller } from "./userController";
 import { TodoDatasourceImpl } from '../../infrastructure/datasource/todo.datasource.impl';
 import { TodoRepositoryImpl } from '../../infrastructure/repositories/todo.repository.impl';
 
@@ -49,14 +20,32 @@ export class UserRoutes {
 
     const datasource = new TodoDatasourceImpl();
     const todoRepository = new TodoRepositoryImpl( datasource );
-    const todoController = new TodosController(todoRepository);
+    const userContoller = new UserContoller(todoRepository);
 
-    router.get('/', todoController.getTodos );
-    router.get('/:id', todoController.getTodoById );
+
+    userRegistry.register("User", UserSchema);
+
+    userRegistry.registerPath({
+      method: "get",
+      path: "/users",
+      tags: ["User"],
+      responses: createApiResponse(z.array(UserSchema), "Success"),
+    });
     
-    router.post('/', todoController.createTodo );
-    router.put('/:id', todoController.updateTodo );
-    router.delete('/:id', todoController.deleteTodo );
+    router.get("/", userContoller.getUsers);
+
+    userRegistry.registerPath({
+      method: "get",
+      path: "/users/{id}",
+      tags: ["User"],
+      request: { params: GetUserSchema.shape.params },
+      responses: createApiResponse(UserSchema, "Success"),
+    });
+    
+    router.get("/:id", validateRequest(GetUserSchema), userContoller.getUser);
+    
+
+ 
 
 
     return router;
