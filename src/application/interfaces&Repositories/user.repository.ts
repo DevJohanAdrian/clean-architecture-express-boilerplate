@@ -1,4 +1,4 @@
-import { UserEntity } from "../entities/user.entity";
+import { UserEntity } from "../../domain/entities/user.entity";
 import { CreateUserDto, UpdateUserDto } from "@/application/dtos";
 
 export abstract class UserRepository{
@@ -10,4 +10,4 @@ export abstract class UserRepository{
     abstract deleteUser(id: number): Promise<UserEntity>
 
 
-}
+}   
