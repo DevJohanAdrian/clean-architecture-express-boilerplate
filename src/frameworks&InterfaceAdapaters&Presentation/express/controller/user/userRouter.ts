@@ -6,8 +6,8 @@ import { createApiResponse } from "@/api-docs/openAPIResponseBuilders";
 import { GetUserSchema, UserSchema } from "@/api/user/userModel";
 import { validateRequest } from "@/common/utils/httpHandlers";
 import { UserContoller } from "./userController";
-import { TodoDatasourceImpl } from '../../infrastructure/datasource/todo.datasource.impl';
-import { TodoRepositoryImpl } from '../../infrastructure/repositories/todo.repository.impl';
+import { UserRepositoryImpl } from "@/infrastructure/repositories/users/user.repository.impl";
+import { UserDatasourceImpl } from "@/infrastructure/datasources/users/user.datasource.impl";
 
 
 export class UserRoutes {
@@ -18,8 +18,8 @@ export class UserRoutes {
     const userRegistry = new OpenAPIRegistry();
     const router = Router();
 
-    const datasource = new TodoDatasourceImpl();
-    const todoRepository = new TodoRepositoryImpl( datasource );
+    const datasource = new UserDatasourceImpl(); // comunicacion a bd
+    const todoRepository = new UserRepositoryImpl( datasource );
     const userContoller = new UserContoller(todoRepository);
 
 
@@ -32,17 +32,17 @@ export class UserRoutes {
       responses: createApiResponse(z.array(UserSchema), "Success"),
     });
     
-    router.get("/", userContoller.getUsers);
+    router.get("/", userContoller.getAllUser);
 
-    userRegistry.registerPath({
-      method: "get",
-      path: "/users/{id}",
-      tags: ["User"],
-      request: { params: GetUserSchema.shape.params },
-      responses: createApiResponse(UserSchema, "Success"),
-    });
+    // userRegistry.registerPath({
+    //   method: "get",
+    //   path: "/users/{id}",
+    //   tags: ["User"],
+    //   request: { params: GetUserSchema.shape.params },
+    //   responses: createApiResponse(UserSchema, "Success"),
+    // });
     
-    router.get("/:id", validateRequest(GetUserSchema), userContoller.getUser);
+    // router.get("/:id", validateRequest(GetUserSchema), userContoller.getUser);
     
 
  

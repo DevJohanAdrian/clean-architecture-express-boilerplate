@@ -1,6 +1,6 @@
 import env  from "./config/envs";
-import { logger, Server } from "@/frameworks/express/server";
-import { AppRoutes } from "./frameworks/express/routes/index.routes";
+import { logger, Server } from "./frameworks&InterfaceAdapaters&Presentation/express/server";
+import { AppRoutes } from "./frameworks&InterfaceAdapaters&Presentation/express/routes/index.routes";
 
 
 
