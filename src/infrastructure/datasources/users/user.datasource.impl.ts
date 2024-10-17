@@ -40,7 +40,6 @@ export class UserDatasourceImpl implements UserDatasource {
         const deletedUser = await prisma.users.delete({where:{id}})
 
         return UserMapper.toDomain(deletedUser)
-       
     }
    
 }

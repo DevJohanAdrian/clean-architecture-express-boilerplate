@@ -1,4 +1,4 @@
-import { UserEntity } from "../../../domain/entities/user.entity";
+import { UserEntity } from "@/domain";
 import { CreateUserDto, UpdateUserDto } from "@/application/dtos";
 
 export abstract class UserRepository{

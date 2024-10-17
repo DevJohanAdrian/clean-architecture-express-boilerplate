@@ -14,6 +14,7 @@ import { createServer, Server as HttpServer } from 'http'; // Para crear el serv
 
 
 const logger = pino({ name: "server start" });
+
 interface Options {
   port: number;
   routes: Router;
@@ -58,13 +59,13 @@ interface Options {
 
 
     //* Routes
-    this.app.use('/v1/api',this.routes );
+    this.app.use('/v1/api', this.routes );
 
     // Swagger UI
     this.app.use(openAPIRouter);
 
 
-    // //* SPA
+    //* SPA
     // this.app.get('*', (req, res) => {
     //   const indexPath = path.join( __dirname + `../../../${ this.publicPath }/index.html` );
     //   res.sendFile(indexPath);
@@ -77,7 +78,9 @@ interface Options {
     this.server = createServer(this.app);
 
     this.server.listen(this.port, () => {
+      const { NODE_ENV, HOST, PORT } = env;
       console.log(`Server running on port ${ this.port }`);
+      logger.info(`Server (${NODE_ENV}) running on port http://${HOST}:${PORT}`);
     });
 
     
