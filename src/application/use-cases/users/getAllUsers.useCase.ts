@@ -1,6 +1,11 @@
-import { UserEntity, UserRepository } from "@/domain";
+import { UserEntity} from "@/domain";
+import { UserRepository } from "@/application/interfaces";
 
-export class GetAllUserUseCase{
+export interface IGetAllUsersUse{
+    execute():Promise<UserEntity[]>
+}
+
+export class GetAllUserUseCase implements IGetAllUsersUse{
     constructor(
         private readonly repository: UserRepository
     ){}

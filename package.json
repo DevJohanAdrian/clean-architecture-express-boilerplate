@@ -19,13 +19,16 @@
     "lint": "biome check src/",
     "lint:fix": "biome check src/ --fix",
     "format": "biome format src/",
-    "test": "vitest run",
     "prepare": "husky",
     "prisma-postinstall": "prisma generate",
     "prisma-migration": "prisma migrate dev",
     "prisma-seed": "prisma db seed",
     "prisma-push": "prisma db push",
-    "prisma-pull": "prisma db pull"
+    "prisma-pull": "prisma db pull",
+    "test": "vitest",
+    "test:watch": "vitest --watch",
+    "test:coverage": "vitest run --coverage",
+    "test:ui": "vitest --ui"
   },
   "dependencies": {
     "@asteasolutions/zod-to-openapi": "^7.0.0",
