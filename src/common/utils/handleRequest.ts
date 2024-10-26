@@ -1,5 +1,5 @@
 
-// import { Request, Response, NextFunction } from 'express';
+ import { Request, Response, NextFunction } from 'express';
 // import { CustomError } from '../errors/customError';
 
 // // Higher-order function para manejar errores
@@ -16,7 +16,7 @@
 //   };
 // };
 
-import { Request, Response, NextFunction } from 'express';
+
 
 // Higher-order function para manejar errores de funciones asíncronas
 export const handleCatchErrorAsync = (

@@ -5,7 +5,7 @@ export interface IGetAllUsersUse{
     execute():Promise<UserEntity[]>
 }
 
-export class GetAllUserUseCase implements IGetAllUsersUse{
+export class GetAllUsersUseCase implements IGetAllUsersUse{
     constructor(
         private readonly repository: UserRepository
     ){}
