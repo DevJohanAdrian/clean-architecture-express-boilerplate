@@ -2,7 +2,7 @@ import { CreateUserDto, UpdateUserDto } from "@/application/dtos";
 import { UserDatasource } from "@/application/interfaces";
 import { UserEntity } from "@/domain";
 import { CustomGeneralError } from "@/domain/customErrors/customGeneral.error";
-import { prisma } from "@/infrastructure/database/PrismaConnection";
+import  prisma  from "@/infrastructure/database/prisma.connection";
 import { UserMapper } from "@/infrastructure/mappers/users/user.mapper";
 
 export class UserDatasourceImpl implements UserDatasource {
@@ -21,10 +21,12 @@ export class UserDatasourceImpl implements UserDatasource {
 
         return UserMapper.toDomain(user)
     }
+    
     async getAll(): Promise<UserEntity[]> {
         const users = await prisma.users.findMany();
         return users.map(user => UserMapper.toDomain(user) ) 
     }
+
     async getById(id: number): Promise<UserEntity> {
         const user = await prisma.users.findFirst({
             where: {

@@ -1,14 +1,13 @@
 {
-  "name": "express-typescript-boilerplate",
-  "version": "1.0.14",
-  "description": "An Express boilerplate backend",
-  "author": "Edwin Hernandez",
-  "repository": "edwinhern/express-typescript-2024",
+  "name": "clean-architecture-express-boilerplate",
+  "version": "1.0.1",
+  "description": "A clean architecture Express boilerplate backend",
+  "author": "Johan Garcia",
+  "repository": "DevJohanAdrian/clean-architecture-express-boilerplate",
   "license": "MIT",
   "main": "index.ts",
   "private": true,
   "prisma": {
-    "schema": "src/infrastructure/database/prisma/schema.prisma",
     "seed": "node prisma/seed.js"
   },
   "scripts": {

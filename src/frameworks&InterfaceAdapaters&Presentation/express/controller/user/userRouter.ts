@@ -41,7 +41,7 @@ export class UserRoutes {
 
     router.get('/', userContoller.getAllUser);
 
-    router.get('/id', validateRequest(GetUserSchema), userContoller.getUserById)
+    router.get('/:id', validateRequest(GetUserSchema), userContoller.getUserById)
 
     router.post('/', validateRequest(UserCreateSchema), userContoller.createUser)
 

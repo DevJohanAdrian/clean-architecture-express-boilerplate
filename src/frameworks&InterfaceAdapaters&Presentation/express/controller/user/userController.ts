@@ -13,11 +13,14 @@ export class UserContoller {
 
   public getUserById = handleCatchErrorAsync(async (req:Request, res:Response)=>{
     const {id} = req.params;
+    console.log("entre")
     const user = await new GetUserByIdUseCase(this.userRepository).execute(parseInt(id))
     res.json(user)
   })
 
   public createUser = handleCatchErrorAsync(async (req:Request, res:Response)=>{
+    console.log("holamuindo")
+
     const {body} = req;
     const user = await new CreateUserUseCase(this.userRepository).execute(body)
     res.json(user)

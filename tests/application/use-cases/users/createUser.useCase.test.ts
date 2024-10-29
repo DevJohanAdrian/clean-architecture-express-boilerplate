@@ -1,14 +1,23 @@
-import { CreateUserUseCase } from './../../../../src/application/use-cases/users/createUser.useCase';
-import { CreateUserDto } from './../../../../src/application/dtos/users/createUserDto';
+import { CreateUserUseCase } from './../../../../src/application/use-cases/index';
+import { CreateUserDto, UpdateUserDto } from './../../../../src/application/dtos/index';
 import { UserEntity } from '../../../../src/domain';
-import { UserRepository } from '../../../../src/application/interfaces/interfaces&Repositories/users/user.repository';
+import { UserRepository } from '../../../../src/application/interfaces/index'
 
-describe("Create Contact Use Case", () => {
+describe("Create user Use Case", () => {
     class MockUserRepository implements UserRepository {
         create(createUserDto: CreateUserDto): Promise<UserEntity> {
             throw new Error("Method not implemented.");
         }
+        updateById(updateUserDto: UpdateUserDto): Promise<UserEntity> {
+            throw new Error("Method not implemented.")
+        }
         getAll(): Promise<UserEntity[]> {
+            throw new Error("Method not implemented.");
+        }
+        getById(id: number): Promise<UserEntity> {
+            throw new Error("Method not implemented.");
+        }
+        deleteUser(id: number): Promise<UserEntity> {
             throw new Error("Method not implemented.");
         }
     }

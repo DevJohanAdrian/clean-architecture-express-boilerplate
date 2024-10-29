@@ -2,7 +2,7 @@ import { StatusCodes } from "http-status-codes";
 import request from "supertest";
 
 import type { ServiceResponse } from "@/common/models/serviceResponse";
-import { app } from "@/frameworks/express/server";
+import { server } from "@/frameworks/express/server";
 
 describe("Health Check API endpoints", () => {
   it("GET / - success", async () => {
