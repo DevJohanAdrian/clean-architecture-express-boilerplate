@@ -1,6 +1,6 @@
 {
   "name": "clean-architecture-express-boilerplate",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A clean architecture Express boilerplate backend",
   "author": "Johan Garcia",
   "repository": "DevJohanAdrian/clean-architecture-express-boilerplate",
