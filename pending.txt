@@ -1,0 +1,11 @@
+Terminar pruebas unitarias
+Hacer pruebas de integracion
+Crear Pipeline CI
+Ver lo de dockerizacion para despligue
+VER PARA QUE SRIVE .NVMRC, .VSCODE Y HUSKY
+Posibles configuraciones de tsconfig
+Organizar README con una imagen del folder que se siguio, tecnologias y patrones
+Dockerfile y docker compose
+Ver como funciona biome
+Montar a linkedin
+

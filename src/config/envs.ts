@@ -1,6 +1,7 @@
 import dotenv from "dotenv";
 import { cleanEnv, host, num, port, str, testOnly } from "envalid";
 
+// Cargar variables de entorno desde .env
 dotenv.config();
 
  const env = cleanEnv(process.env, {

@@ -24,7 +24,7 @@ interface Options {
 
  class Server {
 
-  private app: Express = express();
+  public readonly app: Express = express(); // se cambio a public para hacer uso de el en pruebas
   private readonly port: number;
   private readonly publicPath: string;
   private readonly routes: Router;
