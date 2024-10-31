@@ -6,6 +6,8 @@ export default defineConfig({
     coverage: {
       exclude: ["**/node_modules/**", "**/index.ts"],
     },
+    setupFiles: './setupTest.ts', 
+
     globals: true,
     restoreMocks: true,
   },
