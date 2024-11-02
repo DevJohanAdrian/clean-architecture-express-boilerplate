@@ -1,4 +1,5 @@
-Terminar pruebas unitarias
+Terminar pruebas unitarias x
+Crear setupTest.ts, servidor de prueva y archivo .env.test x
 Hacer pruebas de integracion
 Crear Pipeline CI
 Ver lo de dockerizacion para despligue
