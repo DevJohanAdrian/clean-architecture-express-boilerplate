@@ -22,5 +22,5 @@
       "skipFiles": ["<node_internals>/**", "${workspaceFolder}/node_modules/**"],
       "preLaunchTask": "npm: build"
     }
-  ]
-}
+    ]
+  }

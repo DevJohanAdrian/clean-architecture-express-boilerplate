@@ -1,0 +1,31 @@
+#version: '3.9' #ya no es necesaria
+
+services:
+  db:
+    container_name: clean_architecture_db
+    image: postgres:17
+    restart: always #en caso de errores o paros, se reinicia
+    volumes:
+      - ./db/postgres:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: pruebas_express_clean_architecture
+      POSTGRES_USER: admin_clean_architecture
+      POSTGRES_PASSWORD: 123456
+    ports:
+      - 5432:5432
+  
+  pgAdmin:
+    container_name: pgAdmin_clean_architecture
+    image: dpage/pgadmin4
+    depends_on: 
+      - db
+    restart: always
+    volumes:
+      - ./db/pgadmin:/var/lib/pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@express.com
+      PGADMIN_DEFAULT_PASSWORD: 123456
+      PGADMIN_LISTEN_PORT: 80
+    ports:
+      - 8080:80  
+    
