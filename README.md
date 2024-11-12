@@ -14,6 +14,29 @@ This boilerplate was built using another boilerplate as its foundation, as the d
 
  👉 https://github.com/edwinhern/express-typescript-2024
 
+### Project anatomy
+
+```
+app 
+ └ prisma orm                       → Prisma schemas and migrations
+ └ src                              → Application sources 
+    └ application                   → Application services layer
+       └ dtos                       → Dtos (Users)
+       └ use_cases                  → Application business rules 
+       └ interfaces                 → Interfaces or abstract class for use cases, datasources and respository implementation
+    └ domain                        → Enterprise core business layer such as domain model objects (Aggregates, Entities, Value Objects) 
+       └ customErrors               → Custom class error to handle specific errors 
+    └ infrastructure                → Adapters and formatters for use cases and entities to external agency such as Database or the Web
+       └ database                   → Prisma client       
+       └ repositories               → Implementation of domain repository interfaces
+       └ datasources                → Implementation of domain datasources interfaces
+    └ presentation                  → Frameworks, drivers and tools such as Database, the Web Framework, logger, swagger etc...
+       └ express                    → Framework configuration files, middlewares, environment configuration, routes and controllers
+    └ index.js                      → Main application entry point
+ └ node_modules (generated)         → NPM dependencies
+ └ test                             → Source folder for unit or integration tests
+``` 
+
 ## 🌟 Introduction
 
 Welcome to the Clean Architecture Boilerplate 2024 – a modern, scalable, and maintainable foundation for building backend services. Built on the principles of Clean Architecture, this boilerplate is designed to provide a clear separation of concerns, making it easy to scale and maintain your codebase over time. Leveraging TypeScript for type safety and Express.js for fast and flexible API development, this framework follows best practices to ensure high-quality code that is testable, adaptable, and easy to extend.
@@ -41,7 +64,9 @@ This boilerplate is designed to:
 - 🛡️ Code Quality Assurance: Husky and lint-staged for consistent quality and pre-commit hooks
 - 🎯 Unified Code Style: Biomejs for consistent coding standards across the project
 - 📑 API Response Standardization: ServiceResponse class for consistent API responses
+- 🔧 Prisma Integration: Prisma simplifies database interactions with a type-safe ORM, enabling efficient querying, migrations, and schema management.
 - 🐳 Docker Support: Ready for containerization and deployment with Docker
+- 💦 The docker-compose.yml file is configured to set up both Postgres and pgAdmin containers, making it easy to run a full database stack with minimal setup. 
 - 📝 Input Validation with Zod: Strongly typed request validation using Zod
 - 📖 Swagger UI: Interactive API documentation generated from Zod schemas for easy exploration
 
