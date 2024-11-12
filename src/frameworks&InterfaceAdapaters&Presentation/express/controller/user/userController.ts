@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { handleCatchErrorAsync } from "@/common/utils/handleRequest";
+import { handleCatchErrorAsync } from "@presentation/express/common/utils/handleRequest";
 import { UserRepository } from "@/application/interfaces";
 import { GetAllUsersUseCase, GetUserByIdUseCase, CreateUserUseCase, UpdateUserByIdUseCase, DeleteUserByIdUseCase } from "@/application/use-cases";
 

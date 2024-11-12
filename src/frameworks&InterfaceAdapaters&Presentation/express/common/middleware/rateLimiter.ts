@@ -1,7 +1,7 @@
 import type { Request } from "express";
 import { rateLimit } from "express-rate-limit";
 
-import env from "@/config/envs";
+import env from "@presentation/express/config/envs";
 
 const rateLimiter = rateLimit({
   legacyHeaders: true,

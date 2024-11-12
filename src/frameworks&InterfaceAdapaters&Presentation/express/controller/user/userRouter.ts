@@ -2,9 +2,9 @@
 import { OpenAPIRegistry } from "@asteasolutions/zod-to-openapi";
 import { Router } from 'express';
 import { z } from "zod";
-import { createApiResponse } from "@/api-docs/openAPIResponseBuilders";
+import { createApiResponse } from "@presentation/express/api-docs/openAPIResponseBuilders";
 import { GetUserSchema, UserCreateSchema, UserSchema } from "./userModel";
-import { validateRequest } from "@/common/utils/httpHandlers";
+import { validateRequest } from "@presentation/express/common/utils/httpHandlers";
 import { UserContoller } from "./userController";
 import { UserRepositoryImpl } from "@/infrastructure/repositories/users/user.repository.impl";
 import { UserDatasourceImpl } from "@/infrastructure/datasources/users/user.datasource.impl";

@@ -1,8 +1,8 @@
-import env from "@/config/envs";
-import errorHandler from "@/common/middleware/errorHandler";
-import rateLimiter from "@/common/middleware/rateLimiter";
-import requestLogger from "@/common/middleware/requestLogger";
-import { openAPIRouter } from "@/api-docs/openAPIRouter";
+import env from "@presentation/express/config/envs";
+import errorHandler from "@presentation/express/common/middleware/errorHandler";
+import rateLimiter from "@presentation/express/common/middleware/rateLimiter";
+import requestLogger from "@presentation/express/common/middleware/requestLogger";
+import { openAPIRouter } from "@presentation/express/api-docs/openAPIRouter";
 import cors from "cors";
 import helmet from "helmet";
 import { pino } from "pino";
