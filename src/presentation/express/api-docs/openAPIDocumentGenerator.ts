@@ -1,6 +1,6 @@
 import { OpenAPIRegistry, OpenApiGeneratorV3 } from "@asteasolutions/zod-to-openapi";
 
-import { userRegistry } from "@/frameworks&InterfaceAdapaters&Presentation/express/controller/user/userRouter";
+import { userRegistry } from "@presentation/express/controller/user/userRouter";
 
 export function generateOpenAPIDocument() {
   const registry = new OpenAPIRegistry([userRegistry]);
