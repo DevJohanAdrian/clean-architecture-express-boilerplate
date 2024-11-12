@@ -1,18 +1,21 @@
 Terminar pruebas unitarias x
 docker compose x
 Crear setupTest.ts, servidor de prueva y archivo .env.test x
+Organizar README con una imagen del folder que se siguio, tecnologias y patrones x
+Crear Pipeline CI x
+
+dependbot
 Dockerfile 
 seed de prisma
 Hacer pruebas de integracion
 healh module 
 Pasar a esmodule
-Crear Pipeline CI
+
 Ver lo de dockerizacion para despligue
 VER PARA QUE SRIVE .NVMRC, .VSCODE Y HUSKY
 Posibles configuraciones de tsconfig
-Organizar README con una imagen del folder que se siguio, tecnologias y patrones
 Hacer autentificacion
 
 Ver como funciona biome
-Montar a linkedin
+Montar a linkedin x
 
