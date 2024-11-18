@@ -2,7 +2,7 @@ import { CreateUserDto, UpdateUserDto } from "@/application/dtos";
 import { UserDatasource } from "@/application/interfaces";
 import { UserEntity } from "@/domain";
 import { CustomGeneralError } from "@/domain/customErrors/customGeneral.error";
-import  prisma  from "@/infrastructure/database/prisma.connection";
+import  prisma  from "prisma/prisma.connection";
 import { UserMapper } from "@/infrastructure/mappers/users/user.mapper";
 
 export class UserDatasourceImpl implements UserDatasource {

@@ -23,7 +23,7 @@
     "npm": ">=10.x"
   },
   "prisma": {
-    "seed": "node prisma/seed.js"
+    "seed": "ts-node prisma/seed.ts"
   },
   "main": "src/index.ts",
   "scripts": {

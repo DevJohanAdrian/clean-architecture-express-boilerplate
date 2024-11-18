@@ -20,8 +20,8 @@ services:
     depends_on: 
       - db
     restart: always
-    volumes:
-      - ./db/pgadmin:/var/lib/pgadmin
+    #volumes:
+    #  - ./db/pgadmin:/var/lib/pgadmin
     environment:
       PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL}
       PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD}
