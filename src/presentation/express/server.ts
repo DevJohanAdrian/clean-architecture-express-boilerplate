@@ -54,27 +54,28 @@ interface Options {
     //* Request logging
     this.app.use(requestLogger);
 
-    //* Public Folder
-    this.app.use( express.static( this.publicPath ) );
+  
 
 
     //* Routes
     this.app.use('/v1/api', this.routes );
 
-    // Swagger UI
+    //* Swagger UI
     this.app.use(openAPIRouter);
 
-
+    //* Public Folder
+    this.app.use( express.static( this.publicPath ) );
+    
     //* SPA
-    // this.app.get('*', (req, res) => {
-    //   const indexPath = path.join( __dirname + `../../../${ this.publicPath }/index.html` );
-    //   res.sendFile(indexPath);
-    // });
+    this.app.get('*', (req, res) => {
+      const indexPath = path.join( __dirname + `../../../${ this.publicPath }/index.html` );
+      res.sendFile(indexPath);
+    });
 
-    // Error handlers
+    //* Error handlers
     this.app.use(errorHandler());
     
-    // Crear servidor HTTP
+    //* Crear servidor HTTP
     this.server = createServer(this.app);
 
     this.server.listen(this.port, () => {
@@ -83,7 +84,12 @@ interface Options {
       logger.info(`Server (${NODE_ENV}) running on port http://${HOST}:${PORT}`);
     });
 
-    
+
+    //* keep alive
+    // Establece el tiempo en milisegundos que el servidor mantendrá una conexión abierta sin actividad
+    this.server.keepAliveTimeout = (60 * 1000) + 1000 // 61 segundos
+    // Establece el tiempo máximo para recibir todos los encabezados antes de cerrar la conexión
+    this.server.headersTimeout = (60 * 1000) + 2000 // 62 segundos
 
   }
 

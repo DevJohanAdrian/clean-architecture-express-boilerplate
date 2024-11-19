@@ -1,12 +1,12 @@
 import { StatusCodes } from "http-status-codes";
 import request from "supertest";
 
-import type { ServiceResponse } from "@/common/models/serviceResponse";
-import { server } from "@/frameworks/express/server";
+import type { ServiceResponse } from "../../../../../src/presentation/express/common/models/serviceResponse";
+import { Server } from "../../../../../src/presentation/express/server";
 
 describe("Health Check API endpoints", () => {
   it("GET / - success", async () => {
-    const response = await request(app).get("/health-check");
+    const response = await request(Server).get("/health-check");
     const result: ServiceResponse = response.body;
 
     expect(response.statusCode).toEqual(StatusCodes.OK);

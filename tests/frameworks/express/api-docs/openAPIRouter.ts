@@ -1,9 +1,7 @@
 import { StatusCodes } from "http-status-codes";
 import request from "supertest";
-
-import { app } from "@/frameworks/express/server";
-
-import { generateOpenAPIDocument } from "../openAPIDocumentGenerator";
+import { Server } from "../../../../src/presentation/express/server";
+import { generateOpenAPIDocument } from "../../../../src/presentation/express/api-docs/openAPIDocumentGenerator";
 
 describe("OpenAPI Router", () => {
   describe("Swagger JSON route", () => {
@@ -12,7 +10,7 @@ describe("OpenAPI Router", () => {
       const expectedResponse = generateOpenAPIDocument();
 
       // Act
-      const response = await request(app).get("/swagger.json");
+      const response = await request(Server).get("/swagger.json");
 
       // Assert
       expect(response.status).toBe(StatusCodes.OK);
@@ -22,7 +20,7 @@ describe("OpenAPI Router", () => {
 
     it("should serve the Swagger UI", async () => {
       // Act
-      const response = await request(app).get("/");
+      const response = await request(Server).get("/");
 
       // Assert
       expect(response.status).toBe(StatusCodes.OK);

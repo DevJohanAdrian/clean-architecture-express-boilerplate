@@ -2,20 +2,31 @@ Terminar pruebas unitarias x
 docker compose x
 Crear setupTest.ts, servidor de prueva y archivo .env.test x
 Organizar README con una imagen del folder que se siguio, tecnologias y patrones x
-Crear Pipeline CI x
+dependbot y renovatebot x
+seed de prisma x
+healh module x
+caching x (No es necesario ya que es algo complejo y se deben de tener algunos puntos en cuenta para decidir si implmentarlo)
+VER PARA QUE SRIVE .NVMRC, .VSCODE  x
+keep alive x
+Public path agregar buscar ejemplos
 
-dependbot
-Dockerfile 
-seed de prisma
+HUSKY CONFIGURACION Y USO
+Prettier
+Probar el middleware de errores
 Hacer pruebas de integracion
-healh module 
+
+Configuracion de tsconfig x
+Posibles configuraciones de tsconfig, ver porque hay un tsconfi.build y el normal
 Pasar a esmodule
 
-Ver lo de dockerizacion para despligue
-VER PARA QUE SRIVE .NVMRC, .VSCODE Y HUSKY
-Posibles configuraciones de tsconfig
-Hacer autentificacion
 
+Dockerfile 
+Ver lo de dockerizacion para despligue
+Serializacion y deserializacion (Se hizo en nest)
+Pruebas de Seguridad: Comprueba la seguridad de la API, asegurándote de que solo usuarios autorizados puedan acceder a los recursos.
+Hacer autentificacion y autorizacion implementar cashing (Cachear datos de la sesión de un usuario en una aplicación web para evitar consultas repetidas a la base de datos.)
+Crear Pipeline CI (Solo ha corrido el de test averiguar como correr los otros)
+Git actions bot y semantic-release-bot
 Ver como funciona biome
 Montar a linkedin x
 
