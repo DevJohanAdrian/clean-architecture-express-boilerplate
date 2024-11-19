@@ -6,11 +6,15 @@ dependbot y renovatebot x
 seed de prisma x
 healh module x
 caching x (No es necesario ya que es algo complejo y se deben de tener algunos puntos en cuenta para decidir si implmentarlo)
-VER PARA QUE SRIVE .NVMRC, .VSCODE Y HUSKY x
-keep alive 
+VER PARA QUE SRIVE .NVMRC, .VSCODE  x
+keep alive x
+Public path agregar buscar ejemplos
+
+HUSKY CONFIGURACION Y USO
+Prettier
 Probar el middleware de errores
 Hacer pruebas de integracion
-Public path para que es ?
+
 Configuracion de tsconfig x
 Posibles configuraciones de tsconfig, ver porque hay un tsconfi.build y el normal
 Pasar a esmodule
