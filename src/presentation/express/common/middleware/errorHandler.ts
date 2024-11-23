@@ -1,6 +1,5 @@
-import type { ErrorRequestHandler, RequestHandler } from "express";
-import { StatusCodes } from "http-status-codes";
-
+import type { ErrorRequestHandler, RequestHandler } from 'express';
+import { StatusCodes } from 'http-status-codes';
 
 //routes not found
 const unexpectedRequest: RequestHandler = (_req, res) => {

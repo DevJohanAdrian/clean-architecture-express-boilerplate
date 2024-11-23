@@ -1,19 +1,18 @@
-import env from "@presentation/express/config/envs";
-import errorHandler from "@presentation/express/common/middleware/errorHandler";
-import rateLimiter from "@presentation/express/common/middleware/rateLimiter";
-import requestLogger from "@presentation/express/common/middleware/requestLogger";
-import { openAPIRouter } from "@presentation/express/api-docs/openAPIRouter";
-import cors from "cors";
-import helmet from "helmet";
-import { pino } from "pino";
-import express, { Router, type Express } from 'express';
+import { openAPIRouter } from '@presentation/express/api-docs/openAPIRouter';
+import errorHandler from '@presentation/express/common/middleware/errorHandler';
+import rateLimiter from '@presentation/express/common/middleware/rateLimiter';
+import requestLogger from '@presentation/express/common/middleware/requestLogger';
+import env from '@presentation/express/config/envs';
 import compression from 'compression';
+import cors from 'cors';
+import express, { type Router, type Express } from 'express';
+import helmet from 'helmet';
+import { pino } from 'pino';
 
-import path from 'path';
-import { createServer, Server as HttpServer } from 'http'; // Para crear el servidor HTTP
+import { type Server as HttpServer, createServer } from 'node:http'; // Para crear el servidor HTTP
+import path from 'node:path';
 
-
-const logger = pino({ name: "server start" });
+const logger = pino({ name: 'server start' });
 
 interface Options {
   port: number;
@@ -21,9 +20,7 @@ interface Options {
   public_path?: string;
 }
 
-
- class Server {
-
+class Server {
   public readonly app: Express = express(); // se cambio a public para hacer uso de el en pruebas
   private readonly port: number;
   private readonly publicPath: string;
@@ -37,81 +34,77 @@ interface Options {
     this.routes = routes;
   }
 
-  
-  
   async start() {
     //* Set the application to trust the reverse proxy
-    this.app.set("trust proxy", true);
+    this.app.set('trust proxy', true);
 
     //* Middlewares
-    this.app.use( express.json() ); // raw
-    this.app.use( express.urlencoded({ extended: true }) ); // x-www-form-urlencoded
+    this.app.use(express.json()); // raw
+    this.app.use(express.urlencoded({ extended: true })); // x-www-form-urlencoded
     this.app.use(cors({ origin: env.CORS_ORIGIN, credentials: true }));
     this.app.use(helmet());
     this.app.use(rateLimiter);
-    this.app.use(compression())
+    this.app.use(compression());
 
     //* Request logging
     this.app.use(requestLogger);
 
-  
-
-
     //* Routes
-    this.app.use('/v1/api', this.routes );
+    this.app.use('/v1/api', this.routes);
 
     //* Swagger UI
     this.app.use(openAPIRouter);
 
     //* Public Folder
-    this.app.use( express.static( this.publicPath ) );
-    
+    this.app.use(express.static(this.publicPath));
+
     //* SPA
     this.app.get('*', (req, res) => {
-      const indexPath = path.join( __dirname + `../../../${ this.publicPath }/index.html` );
+      const indexPath = path.join(
+        `${__dirname}../../../${this.publicPath}/index.html`
+      );
       res.sendFile(indexPath);
     });
 
     //* Error handlers
     this.app.use(errorHandler());
-    
+
     //* Crear servidor HTTP
     this.server = createServer(this.app);
 
     this.server.listen(this.port, () => {
       const { NODE_ENV, HOST, PORT } = env;
-      console.log(`Server running on port ${ this.port }`);
-      logger.info(`Server (${NODE_ENV}) running on port http://${HOST}:${PORT}`);
+      console.log(`Server running on port ${this.port}`);
+      logger.info(
+        `Server (${NODE_ENV}) running on port http://${HOST}:${PORT}`
+      );
     });
-
 
     //* keep alive
     // Establece el tiempo en milisegundos que el servidor mantendrá una conexión abierta sin actividad
-    this.server.keepAliveTimeout = (60 * 1000) + 1000 // 61 segundos
+    this.server.keepAliveTimeout = 60 * 1000 + 1000; // 61 segundos
     // Establece el tiempo máximo para recibir todos los encabezados antes de cerrar la conexión
-    this.server.headersTimeout = (60 * 1000) + 2000 // 62 segundos
-
+    this.server.headersTimeout = 60 * 1000 + 2000; // 62 segundos
   }
 
   private handleShutdown() {
     const onCloseSignal = () => {
-      console.log("SIGINT or SIGTERM received, shutting down...");
-      
+      console.log('SIGINT or SIGTERM received, shutting down...');
+
       // Cerrar el servidor de manera controlada
       this.server.close(() => {
-        console.log("Server closed");
+        console.log('Server closed');
         process.exit(0); // Salida exitosa
       });
 
       // Forzar cierre después de 10 segundos si no ha cerrado completamente
-      setTimeout(() => process.exit(1), 10000).unref(); 
+      setTimeout(() => process.exit(1), 10000).unref();
     };
 
     // Escuchar las señales SIGINT y SIGTERM
-    process.on("SIGINT", onCloseSignal);
-    process.on("SIGTERM", onCloseSignal);
+    process.on('SIGINT', onCloseSignal);
+    process.on('SIGTERM', onCloseSignal);
   }
-
 }
 
-export {logger, Server}
+export { logger, Server };

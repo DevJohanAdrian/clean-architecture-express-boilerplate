@@ -4,9 +4,9 @@ import {
   UpdateUserDto,
 } from "../../../../src/application/dtos/index";
 import { UserEntity } from "../../../../src/domain/index";
-import { UserMapper } from '../../../../src/infrastructure/mappers/users/user.mapper';
-import prisma from '../../../../src/infrastructure/database/prisma.connection';
-import { CustomGeneralError } from '../../../../src/domain/customErrors/customGeneral.error';
+import { UserMapper } from "../../../../src/infrastructure/mappers/users/user.mapper";
+import prisma from "../../../../src/infrastructure/database/prisma.connection";
+import { CustomGeneralError } from "../../../../src/domain/customErrors/customGeneral.error";
 
 //sin importacion default
 // vi.mock("../../../../src/infrastructure/database/prisma.connection", () => ({
@@ -21,17 +21,17 @@ import { CustomGeneralError } from '../../../../src/domain/customErrors/customGe
 //   },
 // }));
 // con importacion default
-vi.mock('../../../../src/infrastructure/database/prisma.connection', () => ({
-    default: {
-      users: {
-        create: vi.fn(),
-        update: vi.fn(),
-        findMany: vi.fn(),
-        findFirst: vi.fn(),
-        delete: vi.fn(),
-      },
+vi.mock("../../../../src/infrastructure/database/prisma.connection", () => ({
+  default: {
+    users: {
+      create: vi.fn(),
+      update: vi.fn(),
+      findMany: vi.fn(),
+      findFirst: vi.fn(),
+      delete: vi.fn(),
     },
-  }));
+  },
+}));
 
 vi.mock("../../../../src/infrastructure/mappers/users/user.mapper", () => ({
   UserMapper: {
@@ -58,7 +58,9 @@ describe("UserDatasourceImpl", () => {
     //Act
     const result = await datasource.create(mockCreateUserDto);
     //Assert
-    expect(prisma.users.create).toHaveBeenCalledWith({ data: mockCreateUserDto });
+    expect(prisma.users.create).toHaveBeenCalledWith({
+      data: mockCreateUserDto,
+    });
     expect(UserMapper.toDomain).toHaveBeenCalledWith(mockPrismaUser);
     expect(result).toBe(mockUserEntity);
   });
@@ -94,7 +96,7 @@ describe("UserDatasourceImpl", () => {
 
     prisma.users.findMany.mockResolvedValue(mockPrismaUsers);
     UserMapper.toDomain.mockImplementation((user) =>
-      mockUserEntities.find((e) => e.id === user.id)
+      mockUserEntities.find((e) => e.id === user.id),
     );
 
     const result = await datasource.getAll();
@@ -121,7 +123,7 @@ describe("UserDatasourceImpl", () => {
     prisma.users.findFirst.mockResolvedValue(null);
 
     await expect(datasource.getById(1)).rejects.toThrow(
-      new CustomGeneralError("User with id: 1 not found", 404)
+      new CustomGeneralError("User with id: 1 not found", 404),
     );
   });
 

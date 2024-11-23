@@ -20,7 +20,10 @@
       "automerge": true
     },
     {
-      "matchPackageNames": ["@commitlint/cli", "@commitlint/config-conventional"],
+      "matchPackageNames": [
+        "@commitlint/cli",
+        "@commitlint/config-conventional"
+      ],
       "groupName": "commitlint",
       "groupSlug": "commitlint",
       "automerge": true

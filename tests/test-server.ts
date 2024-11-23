@@ -4,6 +4,6 @@ import { Server } from "../src/frameworks&InterfaceAdapaters&Presentation/expres
 
 // Crear servidor de prueba
 export const testserver = new Server({
-    port:env.PORT,
-    routes: AppRoutes.routes,
-})
+  port: env.PORT,
+  routes: AppRoutes.routes,
+});

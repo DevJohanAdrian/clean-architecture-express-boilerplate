@@ -17,7 +17,7 @@ services:
   pgAdmin:
     container_name: pgAdmin_clean_architecture
     image: dpage/pgadmin4
-    depends_on: 
+    depends_on:
       - db
     restart: always
     #volumes:
@@ -25,7 +25,6 @@ services:
     environment:
       PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL}
       PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD}
-      PGADMIN_LISTEN_PORT: ${PGADMIN_LISTEN_PORT} 
+      PGADMIN_LISTEN_PORT: ${PGADMIN_LISTEN_PORT}
     ports:
-      - 8080:80  
-    
+      - 8080:80

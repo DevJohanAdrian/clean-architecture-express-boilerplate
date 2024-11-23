@@ -9,9 +9,7 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"],
-      "@presentation/*": ["src/presentation/*"],
-     
-      
+      "@presentation/*": ["src/presentation/*"]
     },
     "moduleResolution": "Node",
     "outDir": "dist",
@@ -21,10 +19,8 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "types": ["vitest/globals"]
-  },
+  }
 }
-
-
 
 // {
 //   "exclude": [
@@ -142,4 +138,5 @@
 //     // "skipDefaultLibCheck": true,                      /* Skip type checking .d.ts files that are included with TypeScript. */
 //     "skipLibCheck": true                                 /* Skip type checking all .d.ts files. */
 //   }
+
 // }

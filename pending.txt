@@ -8,19 +8,19 @@ healh module x
 caching x (No es necesario ya que es algo complejo y se deben de tener algunos puntos en cuenta para decidir si implmentarlo)
 VER PARA QUE SRIVE .NVMRC, .VSCODE  x
 keep alive x
-Public path agregar buscar ejemplos
-
 HUSKY CONFIGURACION Y USO
 Prettier
+eslint
 Probar el middleware de errores
 Hacer pruebas de integracion
 
-Configuracion de tsconfig x
+Configuracion de tsconfig 
 Posibles configuraciones de tsconfig, ver porque hay un tsconfi.build y el normal
 Pasar a esmodule
 
 
 Dockerfile 
+Public path agregar buscar ejemplos
 Ver lo de dockerizacion para despligue
 Serializacion y deserializacion (Se hizo en nest)
 Pruebas de Seguridad: Comprueba la seguridad de la API, asegurándote de que solo usuarios autorizados puedan acceder a los recursos.
