@@ -1,13 +1,10 @@
-import { UserEntity } from "@/domain";
-import { CreateUserDto, UpdateUserDto } from "@/application/dtos";
+import type { CreateUserDto, UpdateUserDto } from '@/application/dtos';
+import type { UserEntity } from '@/domain';
 
-export abstract class UserDatasource{
-
-    abstract create(createUserDto: CreateUserDto): Promise<UserEntity>
-    abstract updateById(updateUserDto: UpdateUserDto): Promise<UserEntity>
-    abstract getAll(): Promise<UserEntity[]>
-    abstract getById(id: number): Promise<UserEntity>
-    abstract deleteUser(id: number): Promise<UserEntity>
-
-
-}   
+export abstract class UserDatasource {
+  abstract create(createUserDto: CreateUserDto): Promise<UserEntity>;
+  abstract updateById(updateUserDto: UpdateUserDto): Promise<UserEntity>;
+  abstract getAll(): Promise<UserEntity[]>;
+  abstract getById(id: number): Promise<UserEntity>;
+  abstract deleteUser(id: number): Promise<UserEntity>;
+}

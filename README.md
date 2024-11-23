@@ -5,29 +5,31 @@
 [![Code Quality](https://github.com/DevJohanAdrian/clean-architecture-express-boilerplate/actions/workflows/code-quality.yml/badge.svg)](https://github.com/DevJohanAdrian/clean-architecture-express-boilerplate/actions/workflows/code-quality.yml)
 [![Docker Image CI](https://github.com/DevJohanAdrian/clean-architecture-express-boilerplate/actions/workflows/docker-image.yml/badge.svg)](https://github.com/edwinhern/express-typescript-2024/actions/workflows/docker-image.yml)
 
-``` code
-Hey There! 🙌 
-🤾 that ⭐️ button if you like this boilerplate. 
+```code
+Hey There! 🙌
+🤾 that ⭐️ button if you like this boilerplate.
 ```
+
 ## ☢ Disclaimer
+
 This boilerplate was built using another boilerplate as its foundation, as the decision was made to not start from scratch, but rather leverage an existing structure without a defined architecture. The choice to base the project on an available boilerplate helped accelerate the development process by adopting the most suitable elements to build a more robust architecture. For more information, you can check the base repository here.
 
- 👉 https://github.com/edwinhern/express-typescript-2024
+👉 https://github.com/edwinhern/express-typescript-2024
 
 ### Project anatomy
 
 ```
-app 
+app
  └ prisma orm                       → Prisma schemas and migrations
- └ src                              → Application sources 
+ └ src                              → Application sources
     └ application                   → Application services layer
        └ dtos                       → Dtos (Users)
-       └ use_cases                  → Application business rules 
+       └ use_cases                  → Application business rules
        └ interfaces                 → Interfaces or abstract class for use cases, datasources and respository implementation
-    └ domain                        → Enterprise core business layer such as domain model objects (Aggregates, Entities, Value Objects) 
-       └ customErrors               → Custom class error to handle specific errors 
+    └ domain                        → Enterprise core business layer such as domain model objects (Aggregates, Entities, Value Objects)
+       └ customErrors               → Custom class error to handle specific errors
     └ infrastructure                → Adapters and formatters for use cases and entities to external agency such as Database or the Web
-       └ database                   → Prisma client       
+       └ database                   → Prisma client
        └ repositories               → Implementation of domain repository interfaces
        └ datasources                → Implementation of domain datasources interfaces
     └ presentation                  → Frameworks, drivers and tools such as Database, the Web Framework, logger, swagger etc...
@@ -35,7 +37,7 @@ app
     └ index.js                      → Main application entry point
  └ node_modules (generated)         → NPM dependencies
  └ test                             → Source folder for unit or integration tests
-``` 
+```
 
 ## 🌟 Introduction
 
@@ -50,8 +52,8 @@ This boilerplate is designed to:
 - 🚀 Enable rapid development by following best practices and patterns
 - 🔒 Promote robust security, comprehensive testing, and optimal performance
 
-
 ## 🚀 Features
+
 - 📁 Modular Structure: Organized by feature for easy navigation and scalability
 - ⚡ Faster Execution with tsx: Rapid TypeScript execution with tsx and type checking with tsc
 - 🌍 Stable Node Environment: Latest LTS Node version in .nvmrc
@@ -66,7 +68,7 @@ This boilerplate is designed to:
 - 📑 API Response Standardization: ServiceResponse class for consistent API responses
 - 🔧 Prisma Integration: Prisma simplifies database interactions with a type-safe ORM, enabling efficient querying, migrations, and schema management.
 - 🐳 Docker Support: Ready for containerization and deployment with Docker
-- 💦 The docker-compose.yml file is configured to set up both Postgres and pgAdmin containers, making it easy to run a full database stack with minimal setup. 
+- 💦 The docker-compose.yml file is configured to set up both Postgres and pgAdmin containers, making it easy to run a full database stack with minimal setup.
 - 📝 Input Validation with Zod: Strongly typed request validation using Zod
 - 📖 Swagger UI: Interactive API documentation generated from Zod schemas for easy exploration
 

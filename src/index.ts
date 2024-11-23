@@ -1,22 +1,18 @@
-import env from "@presentation/express/config/envs";
-import { logger, Server } from "@presentation/express/server";
-import { AppRoutes } from "@presentation/express/routes/index.routes";
-
-
-
+import env from '@presentation/express/config/envs';
+import { AppRoutes } from '@presentation/express/routes/index.routes';
+import { Server } from '@presentation/express/server';
 
 // funcion auntoinvocada
-(async()=>{
-main();
+(async () => {
+  main();
 })();
 
-function main(){
-  const server= new Server({
+function main() {
+  const server = new Server({
     port: env.PORT,
     // public_path:env.PUBLIC_PATH,
     routes: AppRoutes.routes,
-  })
-  
-  server.start()
+  });
 
+  server.start();
 }

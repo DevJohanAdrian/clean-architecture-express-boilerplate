@@ -1,16 +1,14 @@
-import { UserEntity} from "@/domain";
-import { UserRepository } from "@/application/interfaces";
+import type { UserRepository } from '@/application/interfaces';
+import type { UserEntity } from '@/domain';
 
-export interface IGetAllUsersUse{
-    execute():Promise<UserEntity[]>
+export interface IGetAllUsersUse {
+  execute(): Promise<UserEntity[]>;
 }
 
-export class GetAllUsersUseCase implements IGetAllUsersUse{
-    constructor(
-        private readonly repository: UserRepository
-    ){}
+export class GetAllUsersUseCase implements IGetAllUsersUse {
+  constructor(private readonly repository: UserRepository) {}
 
-    execute():Promise<UserEntity[]>{
-        return this.repository.getAll(); 
-    }
+  execute(): Promise<UserEntity[]> {
+    return this.repository.getAll();
+  }
 }

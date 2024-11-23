@@ -22,7 +22,6 @@ describe("UserRepositoryImpl", () => {
   const mockUpdateUserDto = { id: 1, name: "Test User" } as UpdateUserDto;
   const mockUser = new UserEntity(1, "Test User");
 
-
   test("should call create method on userDatastore when create is called", async () => {
     //Arrenge
     mockUserDatasource.create.mockResolvedValue(mockUser);
@@ -39,7 +38,9 @@ describe("UserRepositoryImpl", () => {
     //Act
     const result = await userRepository.updateById(mockUpdateUserDto);
     //Assert
-    expect(mockUserDatasource.updateById).toHaveBeenCalledWith(mockUpdateUserDto);
+    expect(mockUserDatasource.updateById).toHaveBeenCalledWith(
+      mockUpdateUserDto,
+    );
     expect(result).toEqual(mockUpdateUserDto);
   });
 
