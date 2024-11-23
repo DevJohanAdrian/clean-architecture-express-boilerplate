@@ -8,9 +8,10 @@ healh module x
 caching x (No es necesario ya que es algo complejo y se deben de tener algunos puntos en cuenta para decidir si implmentarlo)
 VER PARA QUE SRIVE .NVMRC, .VSCODE  x
 keep alive x
+Prettier x
+eslint x
+prettier que se manejen profesionalmente X
 HUSKY CONFIGURACION Y USO
-Prettier
-eslint
 Probar el middleware de errores
 Hacer pruebas de integracion
 
@@ -27,6 +28,7 @@ Pruebas de Seguridad: Comprueba la seguridad de la API, asegurándote de que sol
 Hacer autentificacion y autorizacion implementar cashing (Cachear datos de la sesión de un usuario en una aplicación web para evitar consultas repetidas a la base de datos.)
 Crear Pipeline CI (Solo ha corrido el de test averiguar como correr los otros)
 Git actions bot y semantic-release-bot
-Ver como funciona biome
+cambiar esto porque ya no utiliza biome Unified Code Style: Biomejs for consistent coding standards across the project en el readme
+Reglas de eslint
 Montar a linkedin x
 

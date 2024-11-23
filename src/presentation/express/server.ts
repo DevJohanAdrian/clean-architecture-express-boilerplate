@@ -60,9 +60,7 @@ class Server {
 
     //* SPA
     this.app.get('*', (req, res) => {
-      const indexPath = path.join(
-        `${__dirname}../../../${this.publicPath}/index.html`
-      );
+      const indexPath = path.join(`${__dirname}../../../${this.publicPath}/index.html`);
       res.sendFile(indexPath);
     });
 
@@ -74,10 +72,8 @@ class Server {
 
     this.server.listen(this.port, () => {
       const { NODE_ENV, HOST, PORT } = env;
-      console.log(`Server running on port ${this.port}`);
-      logger.info(
-        `Server (${NODE_ENV}) running on port http://${HOST}:${PORT}`
-      );
+      // console.log(`Server running on port ${this.port}`);
+      logger.info(`Server (${NODE_ENV}) running on port http://${HOST}:${PORT}`);
     });
 
     //* keep alive
@@ -89,11 +85,11 @@ class Server {
 
   private handleShutdown() {
     const onCloseSignal = () => {
-      console.log('SIGINT or SIGTERM received, shutting down...');
+      // console.log('SIGINT or SIGTERM received, shutting down...');
 
       // Cerrar el servidor de manera controlada
       this.server.close(() => {
-        console.log('Server closed');
+        // console.log('Server closed');
         process.exit(0); // Salida exitosa
       });
 

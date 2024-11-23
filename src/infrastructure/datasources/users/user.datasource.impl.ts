@@ -16,26 +16,25 @@ export class UserDatasourceImpl implements UserDatasource {
 
     const user = await prisma.users.update({
       where: { id: updateUserDto.id },
-      data: updateUserDto,
+      data: updateUserDto
     });
 
     return UserMapper.toDomain(user);
   }
 
-  async getAll(): Promise<UserEntity[]> {
+  async getAll(): Promise<Array<UserEntity>> {
     const users = await prisma.users.findMany();
-    return users.map((user) => UserMapper.toDomain(user));
+    return users.map(user => UserMapper.toDomain(user));
   }
 
   async getById(id: number): Promise<UserEntity> {
     const user = await prisma.users.findFirst({
       where: {
-        id: id,
-      },
+        id: id
+      }
     });
 
-    if (!user)
-      throw new CustomGeneralError(`User with id: ${id} not found`, 404);
+    if (!user) throw new CustomGeneralError(`User with id: ${id} not found`, 404);
     return UserMapper.toDomain(user);
   }
   async deleteUser(id: number): Promise<UserEntity> {
