@@ -83,27 +83,41 @@ class Server {
     this.server.headersTimeout = 60 * 1000 + 2000; // 62 segundos
   }
 
+  public isRunning(): boolean {
+    return this.server && this.server.listening;
+  }
+
   public close() {
-    const onCloseSignal = () => {
-      logger.info('SIGINT or SIGTERM received, shutting down...');
+    // const onCloseSignal = () => {
+    //   logger.info('SIGINT or SIGTERM received, shutting down...');
 
-      // console.log('SIGINT or SIGTERM received, shutting down...');
+    //   // console.log('SIGINT or SIGTERM received, shutting down...');
 
-      // Cerrar el servidor de manera controlada
-      this.server.close(() => {
-        logger.info('Server closed');
+    //   // Cerrar el servidor de manera controlada
+    //   this.server.close(() => {
+    //     logger.info('Server closed');
 
-        // console.log('Server closed');
-        process.exit(0); // Salida exitosa
+    //     // console.log('Server closed');
+    //     process.exit(0); // Salida exitosa
+    //   });
+
+    //   // Forzar cierre después de 10 segundos si no ha cerrado completamente
+    //   setTimeout(() => process.exit(1), 10000).unref();
+    // };
+
+    // // Escuchar las señales SIGINT y SIGTERM
+    // process.on('SIGINT', onCloseSignal);
+    // process.on('SIGTERM', onCloseSignal);
+
+    if (this.server) {
+      this.server.close(err => {
+        if (err) {
+          logger.error('Error closing server:', err);
+        } else {
+          logger.info('Server closed');
+        }
       });
-
-      // Forzar cierre después de 10 segundos si no ha cerrado completamente
-      setTimeout(() => process.exit(1), 10000).unref();
-    };
-
-    // Escuchar las señales SIGINT y SIGTERM
-    process.on('SIGINT', onCloseSignal);
-    process.on('SIGTERM', onCloseSignal);
+    }
   }
 }
 

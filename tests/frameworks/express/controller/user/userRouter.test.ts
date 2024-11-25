@@ -5,11 +5,11 @@ import { testserver } from '../../../../test-server';
 // import type { ServiceResponse } from "../../../../../src/presentation/express/common/models/serviceResponse";
 
 describe('', () => {
-  beforeAll(async () => {
+  beforeEach(async () => {
     testserver.start();
   });
 
-  afterAll(() => {
+  afterEach(() => {
     testserver.close();
   });
 
