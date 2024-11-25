@@ -4,6 +4,6 @@ import { Server } from '../src/Presentation/express/server';
 
 // Crear servidor de prueba
 export const testserver = new Server({
-  port: 0,
+  port: 0, // Usar 0 elige un puerto dinámico.
   routes: AppRoutes.routes
 });

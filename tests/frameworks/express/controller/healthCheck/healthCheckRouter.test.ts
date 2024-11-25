@@ -4,11 +4,11 @@ import type { ServiceResponse } from '../../../../../src/presentation/express/co
 import { testserver } from '../../../../test-server';
 
 describe('Health Check API endpoints', () => {
-  beforeEach(async () => {
+  beforeAll(async () => {
     await testserver.start();
   });
 
-  afterEach(() => {
+  afterAll(() => {
     testserver.close();
   });
 
