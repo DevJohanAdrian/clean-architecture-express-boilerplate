@@ -1,9 +1,9 @@
-import { AppRoutes } from "../src/frameworks&InterfaceAdapaters&Presentation/express/routes/index.routes";
-import env from "../src/config/envs";
-import { Server } from "../src/frameworks&InterfaceAdapaters&Presentation/express/server";
+import { AppRoutes } from '../src/Presentation/express/routes/index.routes';
+import env from '../src/presentation/express/config/envs';
+import { Server } from '../src/Presentation/express/server';
 
 // Crear servidor de prueba
 export const testserver = new Server({
   port: env.PORT,
-  routes: AppRoutes.routes,
+  routes: AppRoutes.routes
 });

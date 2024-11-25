@@ -15,7 +15,9 @@ const env = cleanEnv(process.env, {
   COMMON_RATE_LIMIT_MAX_REQUESTS: num({ devDefault: testOnly(1000) }),
   COMMON_RATE_LIMIT_WINDOW_MS: num({ devDefault: testOnly(1000) }),
   DATABASE_URL: str({
-    devDefault: testOnly('postgresql://postgres:123456@localhost:5432/Pruebas')
+    devDefault: testOnly(
+      'postgresql://admin_clean_architecture:123456@localhost:5432/pruebas_express_clean_architecture'
+    )
   })
 });
 

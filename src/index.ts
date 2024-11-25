@@ -1,4 +1,4 @@
-import env from '@presentation/express/config/envs';
+import env from '@/presentation/express/config/envs';
 import { AppRoutes } from '@presentation/express/routes/index.routes';
 import { Server } from '@presentation/express/server';
 

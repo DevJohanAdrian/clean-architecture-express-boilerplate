@@ -94,7 +94,8 @@
     "*.{js,ts,cjs,mjs,d.cts,d.mts,json,jsonc}": [
       "npm run lint:fix",
       "npm run format"
-    ]
+    ],
+    "!test/**": []
   },
   "tsup": {
     "entry": [

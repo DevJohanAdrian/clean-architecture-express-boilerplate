@@ -28,7 +28,6 @@ userRegistry.registerPath({
 });
 
 //--------------------------------------------//
-// biome-ignore lint/class-with-only-static-members: La clase se usa para organizar las rutas
 export class UserRoutes {
   static get routes(): Router {
     const router = Router();

@@ -7,6 +7,7 @@ import tseslint from 'typescript-eslint';
 /** @type {import('eslint').Linter.FlatConfig[]} */
 export default [
   {
+    ignores: ['tests/', '**/test/'],
     files: ['**/*.{js,mjs,cjs,ts}'],
     languageOptions: {
       globals: globals.node, // Cambia "browser" a "node" para entorno Node.js
