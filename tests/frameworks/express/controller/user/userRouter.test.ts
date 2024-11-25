@@ -5,12 +5,16 @@ import { testserver } from '../../../../test-server';
 // import type { ServiceResponse } from "../../../../../src/presentation/express/common/models/serviceResponse";
 
 describe('', () => {
-  beforeEach(async () => {
-    testserver.start();
+  beforeAll(async () => {
+    if (!testserver.isRunning()) {
+      await testserver.start();
+    }
   });
 
-  afterEach(() => {
-    testserver.close();
+  afterAll(() => {
+    if (testserver.isRunning()) {
+      testserver.close();
+    }
   });
 
   it('Should return all users on db and ok status code', async () => {
