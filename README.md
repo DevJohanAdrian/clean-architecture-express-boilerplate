@@ -64,13 +64,19 @@ This boilerplate is designed to:
 - 📊 Logging: Efficient logging with pino-http for better observability
 - 🧪 Comprehensive Testing: Setup with Vitest and Supertest for reliable testing coverage
 - 🛡️ Code Quality Assurance: Husky and lint-staged for consistent quality and pre-commit hooks
-- 🎯 Unified Code Style: Biomejs for consistent coding standards across the project
+   💅 Running the linter over the files that have been changed
+   💬 Use conventional commits to ensure our commits have a convention.
+   ✅ Run the tests automatically.
+   ⚙️ Check our project does not have type errors with Typescript.
+   🙊 Check typos to ensure we don't have grammar mistakes.
+- 🎯 Unified Code Style: ESLint and Prettier for consistent coding standards across the project
 - 📑 API Response Standardization: ServiceResponse class for consistent API responses
 - 🔧 Prisma Integration: Prisma simplifies database interactions with a type-safe ORM, enabling efficient querying, migrations, and schema management.
 - 🐳 Docker Support: Ready for containerization and deployment with Docker
 - 💦 The docker-compose.yml file is configured to set up both Postgres and pgAdmin containers, making it easy to run a full database stack with minimal setup.
 - 📝 Input Validation with Zod: Strongly typed request validation using Zod
 - 📖 Swagger UI: Interactive API documentation generated from Zod schemas for easy exploration
+   
 
 ## 🛠️ Getting Started
 

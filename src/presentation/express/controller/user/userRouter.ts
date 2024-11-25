@@ -16,7 +16,7 @@ userRegistry.registerPath({
   method: 'get',
   path: '/users',
   tags: ['User'],
-  responses: createApiResponse(z.array(UserSchema), 'Success'),
+  responses: createApiResponse(z.array(UserSchema), 'Success')
 });
 // (/:id) route
 userRegistry.registerPath({
@@ -24,11 +24,10 @@ userRegistry.registerPath({
   path: '/users/{id}',
   tags: ['User'],
   request: { params: GetUserSchema.shape.params },
-  responses: createApiResponse(UserSchema, 'Success'),
+  responses: createApiResponse(UserSchema, 'Success')
 });
 
 //--------------------------------------------//
-// biome-ignore lint/class-with-only-static-members: La clase se usa para organizar las rutas
 export class UserRoutes {
   static get routes(): Router {
     const router = Router();
@@ -39,25 +38,13 @@ export class UserRoutes {
 
     router.get('/', userContoller.getAllUser);
 
-    router.get(
-      '/:id',
-      validateRequest(GetUserSchema),
-      userContoller.getUserById
-    );
+    router.get('/:id', validateRequest(GetUserSchema), userContoller.getUserById);
 
-    router.post(
-      '/',
-      validateRequest(UserCreateSchema),
-      userContoller.createUser
-    );
+    router.post('/', validateRequest(UserCreateSchema), userContoller.createUser);
 
     router.put('/', validateRequest(UserSchema), userContoller.updateUserById);
 
-    router.delete(
-      '/:id',
-      validateRequest(GetUserSchema),
-      userContoller.deleteUserById
-    );
+    router.delete('/:id', validateRequest(GetUserSchema), userContoller.deleteUserById);
 
     return router;
   }

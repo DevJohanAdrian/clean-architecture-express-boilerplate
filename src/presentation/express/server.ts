@@ -2,7 +2,7 @@ import { openAPIRouter } from '@presentation/express/api-docs/openAPIRouter';
 import errorHandler from '@presentation/express/common/middleware/errorHandler';
 import rateLimiter from '@presentation/express/common/middleware/rateLimiter';
 import requestLogger from '@presentation/express/common/middleware/requestLogger';
-import env from '@presentation/express/config/envs';
+import env from '@/presentation/express/config/envs';
 import compression from 'compression';
 import cors from 'cors';
 import express, { type Router, type Express } from 'express';
@@ -10,7 +10,7 @@ import helmet from 'helmet';
 import { pino } from 'pino';
 
 import { type Server as HttpServer, createServer } from 'node:http'; // Para crear el servidor HTTP
-import path from 'node:path';
+// import path from 'node:path';
 
 const logger = pino({ name: 'server start' });
 
@@ -53,31 +53,27 @@ class Server {
     this.app.use('/v1/api', this.routes);
 
     //* Swagger UI
-    this.app.use(openAPIRouter);
+    this.app.use('/docs', openAPIRouter);
 
     //* Public Folder
     this.app.use(express.static(this.publicPath));
 
-    //* SPA
-    this.app.get('*', (req, res) => {
-      const indexPath = path.join(
-        `${__dirname}../../../${this.publicPath}/index.html`
-      );
-      res.sendFile(indexPath);
-    });
+    // //* SPA
+    // this.app.get('*', (req, res) => {
+    //   const indexPath = path.join(`${__dirname}../../../${this.publicPath}/index.html`);
+    //   res.sendFile(indexPath);
+    // });
 
     //* Error handlers
-    this.app.use(errorHandler());
+    this.app.use(...errorHandler());
 
     //* Crear servidor HTTP
     this.server = createServer(this.app);
 
     this.server.listen(this.port, () => {
       const { NODE_ENV, HOST, PORT } = env;
-      console.log(`Server running on port ${this.port}`);
-      logger.info(
-        `Server (${NODE_ENV}) running on port http://${HOST}:${PORT}`
-      );
+      // console.log(`Server running on port ${this.port}`);
+      logger.info(`Server (${NODE_ENV}) running on port http://${HOST}:${PORT}`);
     });
 
     //* keep alive
@@ -87,13 +83,13 @@ class Server {
     this.server.headersTimeout = 60 * 1000 + 2000; // 62 segundos
   }
 
-  private handleShutdown() {
+  public close() {
     const onCloseSignal = () => {
-      console.log('SIGINT or SIGTERM received, shutting down...');
+      // console.log('SIGINT or SIGTERM received, shutting down...');
 
       // Cerrar el servidor de manera controlada
       this.server.close(() => {
-        console.log('Server closed');
+        // console.log('Server closed');
         process.exit(0); // Salida exitosa
       });
 
@@ -107,4 +103,4 @@ class Server {
   }
 }
 
-export { logger, Server };
+export { Server };

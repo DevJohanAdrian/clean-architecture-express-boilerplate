@@ -1,8 +1,5 @@
 import type { CreateUserDto, UpdateUserDto } from '@/application/dtos';
-import type {
-  UserDatasource,
-  UserRepository,
-} from '@/application/interfaces/index';
+import type { UserDatasource, UserRepository } from '@/application/interfaces/index';
 import type { UserEntity } from '@/domain';
 
 export class UserRepositoryImpl implements UserRepository {
@@ -14,7 +11,7 @@ export class UserRepositoryImpl implements UserRepository {
   updateById(updateUserDto: UpdateUserDto): Promise<UserEntity> {
     return this.userDatastore.updateById(updateUserDto);
   }
-  getAll(): Promise<UserEntity[]> {
+  getAll(): Promise<Array<UserEntity>> {
     return this.userDatastore.getAll();
   }
   getById(id: number): Promise<UserEntity> {

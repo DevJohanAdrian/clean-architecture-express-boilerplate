@@ -1,7 +1,7 @@
 import type { Request } from 'express';
 import { rateLimit } from 'express-rate-limit';
 
-import env from '@presentation/express/config/envs';
+import env from '@/presentation/express/config/envs';
 
 const rateLimiter = rateLimit({
   legacyHeaders: true,
@@ -9,7 +9,7 @@ const rateLimiter = rateLimit({
   message: 'Too many requests, please try again later.',
   standardHeaders: true,
   windowMs: 15 * 60 * env.COMMON_RATE_LIMIT_WINDOW_MS,
-  keyGenerator: (req: Request) => req.ip as string,
+  keyGenerator: (req: Request) => req.ip as string
 });
 
 export default rateLimiter;
