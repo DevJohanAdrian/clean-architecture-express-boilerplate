@@ -85,10 +85,14 @@ class Server {
 
   public close() {
     const onCloseSignal = () => {
+      logger.info('SIGINT or SIGTERM received, shutting down...');
+
       // console.log('SIGINT or SIGTERM received, shutting down...');
 
       // Cerrar el servidor de manera controlada
       this.server.close(() => {
+        logger.info('Server closed');
+
         // console.log('Server closed');
         process.exit(0); // Salida exitosa
       });
