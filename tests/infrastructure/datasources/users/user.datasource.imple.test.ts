@@ -40,7 +40,7 @@ describe('UserDatasourceImpl', () => {
   const datasource = new UserDatasourceImpl();
   // Mock simple del DTO
   const mockCreateUserDto = { name: 'Test User' } as CreateUserDto;
-
+  // const mockUpdateUserDto = { id: 1, name: "Test User" } as UpdateUserDto;
   const mockPrismaUser = { id: 1, name: 'Test User' };
   const mockUserEntity = new UserEntity(1, 'Test User');
 

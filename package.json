@@ -42,7 +42,7 @@
     "prisma-seed": "prisma db seed",
     "prisma-push": "prisma db push",
     "prisma-pull": "prisma db pull",
-    "test": "vitest",
+    "test": "vitest --run",
     "test:watch": "vitest --watch",
     "test:coverage": "vitest run --coverage",
     "test:ui": "vitest --ui"

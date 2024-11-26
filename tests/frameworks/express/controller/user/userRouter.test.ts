@@ -6,11 +6,15 @@ import { testserver } from '../../../../test-server';
 
 describe('', () => {
   beforeAll(async () => {
-    testserver.start();
+    if (!testserver.isRunning()) {
+      await testserver.start();
+    }
   });
 
   afterAll(() => {
-    testserver.close();
+    if (testserver.isRunning()) {
+      testserver.close();
+    }
   });
 
   it('Should return all users on db and ok status code', async () => {
