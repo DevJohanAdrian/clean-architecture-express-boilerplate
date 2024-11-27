@@ -1,6 +1,13 @@
-/node_modules
-/db
+node_modules/
+db/
 Dockerfile
 .dockerignore
 .git
 .gitignore
+README.md
+commitcd lint.config.ts
+.prettierrc
+.prettierignore
+eslint.config.mjs
+pending.txt
+.husky
