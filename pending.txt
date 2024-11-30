@@ -14,14 +14,12 @@ prettier que se manejen profesionalmente X
 HUSKY CONFIGURACION Y USO x
 Probar el middleware de errores x
 Hacer pruebas de integracion x
+Dockerfile x
+.VSCODE
 
 Configuracion de tsconfig 
 Posibles configuraciones de tsconfig, ver porque hay un tsconfi.build y el normal
 Pasar a esmodule
-
-.VSCODE
-Dockerfile 
-Public path agregar buscar ejemplos
 Ver lo de dockerizacion para despligue
 Serializacion y deserializacion (Se hizo en nest)
 Pruebas de Seguridad: Comprueba la seguridad de la API, asegurándote de que solo usuarios autorizados puedan acceder a los recursos.
@@ -31,3 +29,4 @@ Git actions bot y semantic-release-bot
 Reglas de eslint
 Montar a linkedin x
 
+Las pruebas con supertest para e2e no funcionan en la dockerizacion
