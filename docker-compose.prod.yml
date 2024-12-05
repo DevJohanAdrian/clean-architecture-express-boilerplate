@@ -1,16 +1,20 @@
 #version: '3.9' #ya no es necesaria
+ #se crea este docker compose para  no tener que ejecutar el siguiente comando, el cual se encarga de sobreescribir mi docker-compose.yml
+ #docker compose -f docker-compose.yml -f production.yml up -d
+ # correr solo este comando: docker compose -f docker-compose.prod.yml build y despues docker compose -f docker-compose.prod.yml up
+
+
+
 
 services:
   app: # construye una imagen usando el dockerfile
     build: # apunta al dockerfile y toma el stage de dev
       context: . # Especifica la carpeta desde donde se ejecutarán las instrucciones del Dockerfile. esta es la raiz de mi aplicacion donde esta todo
-      target: ${STAGE}  # Selecciona la etapa "prod", S i se cambia al stage de prod (Runner) de dockerfile ejecutara todos los pasos para cumplir con ese stage
+      target: ${STAGE}  # Selecciona la etapa "dev", S i se cambia al stage de prod (Runner) de dockerfile ejecutara todos los pasos para cumplir con ese stage
       dockerfile: Dockerfile
     #command: ["sh", "-c", "npm run migrate && npm start"]
     # # command: yarn start:dev
-    volumes:
-      - .:/app/
-      - /app/node_modules
+    image: devjohanadrian/clean_architecture_express_bolierplate:latest
     container_name: express_typescript_boilerplate_2024
     ports:
       - ${PORT}:${PORT}
@@ -45,3 +49,5 @@ services:
       PGADMIN_LISTEN_PORT: ${PGADMIN_LISTEN_PORT}
     ports:
       - 8080:80
+
+
