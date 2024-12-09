@@ -55,7 +55,7 @@
 # multi stage
 
 # Stage para solo ser usado en desarrollo, se necesita para el dockercompose
-FROM node:22.11.0-alpine3.20 AS dev
+FROM node:22.12.0-alpine3.20 AS dev
 WORKDIR /app
 COPY package.json ./
 RUN npm install
@@ -66,7 +66,7 @@ CMD [ "npm", "run", "dev" ]
 
 
 # Todas las Dependecias
-FROM node:22.11.0-alpine3.20 AS alldependecies
+FROM node:22.12.0-alpine3.20 AS alldependecies
 WORKDIR /app
 COPY package.json ./
 RUN npm install
@@ -74,7 +74,7 @@ RUN npm install
 #############################################################
 
 # Dependecias de produccion
-FROM node:22.11.0-alpine3.20 AS dependecies
+FROM node:22.12.0-alpine3.20 AS dependecies
 WORKDIR /app
 #Copia mi package.json dentro del WORKDIR
 COPY package.json ./
@@ -83,7 +83,7 @@ RUN npm install --prod
 
 
 # Building y testing
-FROM node:22.11.0-alpine3.20 AS build
+FROM node:22.12.0-alpine3.20 AS build
 WORKDIR /app
 # copio del stage dependencies todo lo de nodemodules
 COPY --from=alldependecies /app/node_modules ./node_modules
@@ -95,7 +95,7 @@ RUN npm run build
 
 
 # Ejecucion de aplicacion
-FROM node:22.11.0-alpine3.20 AS runner
+FROM node:22.12.0-alpine3.20 AS runner
 EXPOSE 3000
 WORKDIR /app
 ENV NOMBRE_VARIABLE=${NOMBRE_VARIABLE}
