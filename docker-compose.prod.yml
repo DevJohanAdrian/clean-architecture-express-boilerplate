@@ -2,6 +2,7 @@
  #se crea este docker compose para  no tener que ejecutar el siguiente comando, el cual se encarga de sobreescribir mi docker-compose.yml
  #docker compose -f docker-compose.yml -f production.yml up -d
  # correr solo este comando: docker compose -f docker-compose.prod.yml build y despues docker compose -f docker-compose.prod.yml up
+ # Para decirle que construya solo un servicio de los que estan definidos, porque no queremos que la imagen de postgres se vaya en la generacion de la imagen: docker compose -f docker-compose.prod.yml build app
 
 
 
@@ -19,7 +20,21 @@ services:
     ports:
       - ${PORT}:${PORT}
     environment:
-      - name=value
+      - NODE_ENV=${NODE_ENV} 
+      - PORT=${PORT}
+      - HOST=${HOST}
+      - PUBLIC_PATH=${PUBLIC_PATH}
+      - CORS_ORIGIN=${CORS_ORIGIN}
+      - COMMON_RATE_LIMIT_WINDOW_MS=${COMMON_RATE_LIMIT_WINDOW_MS}
+      - COMMON_RATE_LIMIT_MAX_REQUESTS=${COMMON_RATE_LIMIT_MAX_REQUESTS}
+      - DATABASE_URL=${DATABASE_URL}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DB=${POSTGRES_DB}
+      - PGADMIN_DEFAULT_EMAIL=${PGADMIN_DEFAULT_EMAIL}
+      - PGADMIN_DEFAULT_PASSWORD=${PGADMIN_DEFAULT_PASSWORD}
+      - PGADMIN_LISTEN_PORT=${PGADMIN_DEFAULT_PASSWORD}
+      - STAGE=${STAGE}
 
 
   db:

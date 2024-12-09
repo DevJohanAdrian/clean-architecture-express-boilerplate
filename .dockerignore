@@ -11,3 +11,7 @@ commitcd lint.config.ts
 eslint.config.mjs
 pending.txt
 .husky
+dist
+docker-compose.yml
+docker-compose.prod.yml
+    

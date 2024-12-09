@@ -17,6 +17,7 @@ Hacer pruebas de integracion x
 Dockerfile x
 .VSCODE
 
+readme poner los pasos de docker
 Configuracion de tsconfig 
 Posibles configuraciones de tsconfig, ver porque hay un tsconfi.build y el normal
 Pasar a esmodule
@@ -30,3 +31,12 @@ Reglas de eslint
 Montar a linkedin x
 
 Las pruebas con supertest para e2e no funcionan en la dockerizacion
+
+
+
+
+
+buildx x
+multistages x
+compose y uso de los stages, como tambien la generaion de imagen de prod por compose X
+Ejecutar la aplicación con el build de docker compose build
