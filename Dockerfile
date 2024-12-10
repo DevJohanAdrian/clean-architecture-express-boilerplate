@@ -29,7 +29,8 @@ FROM node:22.12.0-alpine3.20 AS dependecies
 WORKDIR /app
 #Copia mi package.json dentro del WORKDIR
 COPY package.json ./
-RUN npm install --prod
+#RUN npm install --prod
+RUN npm install --omit=dev --ignore-scripts
 #############################################################
 
 
