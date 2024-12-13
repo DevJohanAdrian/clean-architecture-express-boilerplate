@@ -53,7 +53,8 @@ WORKDIR /app
 ENV NOMBRE_VARIABLE=${NOMBRE_VARIABLE}
 COPY --from=dependecies /app/node_modules ./node_modules
 COPY --from=build /app/dist ./dist
+
 CMD ["npm", "run", "start"]
 # Comandos de prisma para inicializar la migracion y el seed dist
 # env en dist
-
+# --frozen-lockfile para que funciona
