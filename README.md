@@ -41,7 +41,7 @@ app
 
 ## 🌟 Introduction
 
-Welcome to the Clean Architecture Boilerplate 2024 – a modern, scalable, and maintainable foundation for building backend services. Built on the principles of Clean Architecture, this boilerplate is designed to provide a clear separation of concerns, making it easy to scale and maintain your codebase over time. Leveraging TypeScript for type safety and Express.js for fast and flexible API development, this framework follows best practices to ensure high-quality code that is testable, adaptable, and easy to extend.
+Welcome to the Clean Architecture Boilerplate 2024 – a modern, scalable, and maintainable foundation for building backend services. Built on the principles of Clean Architecture, this boilerplate is designed to provide a clear separation of concerns, making it easy to scale and maintain your codebase over time. Leveraging TypeScript for type safety and Express.js for fast and flexible API development, this framework follows best practices to ensure high-quality  code that is testable, adaptable, and easy to extend.
 
 ## 🔮 Motivation
 
